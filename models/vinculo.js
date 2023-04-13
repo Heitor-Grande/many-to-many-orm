@@ -10,16 +10,14 @@ const ator = require("./ator")
 //filme
 const filme = require("./filme")
 
-//vinculo
-const vinculo = database.define("vinculos", {
+const vinculo = "ator_filme"
+
+filme.belongsToMany(ator, {
+    through: vinculo
 })
 
-vinculo.belongsTo(ator, {
-    foreignKey: "id_ators"
+ator.belongsToMany(filme, {
+    through: vinculo
 })
 
-vinculo.belongsTo(filme, {
-    foreignKey: "id_filmes"
-})
-
-module.exports = vinculo
+database.sync()

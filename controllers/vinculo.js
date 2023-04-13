@@ -13,7 +13,7 @@ const vinculoModel = require("../models/vinculo")
 
 vinculo.post("/add/vinculo", function(req, res){
     let id_filme = req.body.id_filme
-    let id_ator = req.body.id_ator
+    let id_ator = req.body.id_ator//ators - filmes
 
     vinculoModel.create({
         id_filmes : id_filme,
@@ -31,7 +31,7 @@ vinculo.get("/all/vinculos", function(req, res){
     vinculoModel.findAll({include : [{model: filmeModel}, {model: atorModel}]}).then(function(vinculos){
         try {
             res.send(vinculos)
-        } catch (error) {
+        } catch (error){
             console.log(error)
         }
     })

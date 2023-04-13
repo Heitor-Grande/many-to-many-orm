@@ -32,7 +32,8 @@ app.post("/add/filme", filme)
 app.get("/all/filmes", filme)
 
 //vinculo rotas
-const vinculo = require("./controllers/vinculo")
+require("./models/vinculo")
+/*const vinculo = require("./controllers/vinculo")
 app.post("/add/vinculo", vinculo)
 app.get("/all/vinculos", vinculo)
-app.get("/all/vinculos/:idAtor", vinculo)
+app.get("/all/vinculos/:idAtor", vinculo)*/
